@@ -11,7 +11,7 @@ jobs:
           path: 'simulation_data'
       - name: install prerequisites
         working-directory: simulation_data/util
-        run: sudo ./install_prerequisites.sh
+        run: ./install_prerequisites.sh
       - name: create design of experiment
         working-directory: simulation_data/util
         run: node ./create_doe.js -p ../parameters/parameter_specifications -o ../parameters/sampling/doe.json
