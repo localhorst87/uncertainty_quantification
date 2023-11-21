@@ -31,17 +31,18 @@ jobs:
       - name: analyze results
         working-directory: simulation_data/util
         run: |
-          mkdir ../results/analyzed
-          nExperiments=5
-          nRuns=10
-          for iExp in $(seq 1 $nExperiments)
-          do
-            for iRun in $(seq 1 $nRuns)
-            do
-              node ./analyze_simulation_results.js -r ../results/simulation_results/experiment_$iExp_run_$iRun/vehicle_res.csv >> ../results/analyzed/experiment_$iExp.txt
-              cat ../results/analyzed/experiment_$iExp.txt
-            done
-          done
+          ls ../results/simulation_results
+          # mkdir ../results/analyzed
+          # nExperiments=5
+          # nRuns=10
+          # for iExp in $(seq 1 $nExperiments)
+          # do
+          #   for iRun in $(seq 1 $nRuns)
+          #   do
+          #     node ./analyze_simulation_results.js -r ../results/simulation_results/experiment_$iExp_run_$iRun/vehicle_res.csv >> ../results/analyzed/experiment_$iExp.txt
+          #     cat ../results/analyzed/experiment_$iExp.txt
+          #   done
+          # done
       # - name: create p-boxes
       #   working-directory: simulation_data/util
       #   run: |
