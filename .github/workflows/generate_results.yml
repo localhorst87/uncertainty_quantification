@@ -9,10 +9,11 @@ jobs:
         uses: actions/checkout@v4
         with: 
           path: 'simulation_data'
-          submodules: 'true'
-      - name: checkout correct branch of submodule
-        working-directory: simulation_data
-        run: git submodule update --remote
+          submodules: true
+      - name: Git Sumbodule Update
+        run: |
+          git pull --recurse-submodules
+          git submodule update --remote
       - name: install prerequisites
         working-directory: simulation_data/util
         run: ./install_prerequisites.sh
@@ -27,3 +28,19 @@ jobs:
         with:
           ssd: .simulation_data/system/experiments
           resultDir: .simulation_data/results/simulation_results
+      # - name: analyze results
+      #   working-directory: simulation_data/util
+      #   run: |
+      #     nExperiments=5
+      #     nRuns=10
+      #     for iExp in $(seq 1 $nExperiments)
+      #     do
+      #       for iRun in $(seq 1 $nRuns)
+      #       do
+      #         node ./analyze_simulation_results.js -r ../results/simulation_results/experiment_$iExp_run_$iRun/vehicle_res.csv >> ../results/analyzed/experiment_$iExp.txt
+      #       done
+      #     done
+      # - name: create p-boxes
+      #   working-directory: simulation_data/util
+      #   run: |
+      #     node ./create-pboxes.js -d ../results/analyzed/
