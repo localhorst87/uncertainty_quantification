@@ -12,7 +12,7 @@ jobs:
           submodules: 'true'
       - name: checkout correct branch of submodule
         working-directory: simulation_data
-        run: git submodule update --init
+        run: git submodule update --remote
       - name: install prerequisites
         working-directory: simulation_data/util
         run: ./install_prerequisites.sh
