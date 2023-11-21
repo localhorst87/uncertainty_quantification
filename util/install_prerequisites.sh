@@ -15,4 +15,4 @@ cd ../util-common
 npm i
 
 cd ../../adapters/openmcx-csv-adapter
-npm i 
+npm i
