@@ -11,6 +11,7 @@ jobs:
           path: 'simulation_data'
           submodules: true
       - name: Git Sumbodule Update
+        working-directory: simulation_data
         run: |
           git pull --recurse-submodules
           git submodule update --remote
