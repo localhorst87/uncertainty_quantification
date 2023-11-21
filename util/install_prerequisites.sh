@@ -16,3 +16,6 @@ npm i
 
 cd ../../adapters/openmcx-csv-adapter
 npm i
+
+cd ../../metrics/evaluation/level_3
+npm i

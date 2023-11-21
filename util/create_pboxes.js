@@ -22,6 +22,10 @@ for (let resultFile of resultFiles) {
     edfs.push(createEmpiricalDistribution(discreteValues));
 }
 
-const pBoxes = createPBoxes(edfs);
-
-console.log(pBoxes);
+if (edfs.length > 1) {
+    const pBoxes = createPBoxes(edfs);
+    console.log(JSON.stringify(pBoxes));
+}
+else {
+    console.log(JSON.stringify(edfs[0]));
+}

@@ -40,9 +40,14 @@ jobs:
             do
               node ./analyze_simulation_results.js -r ../results/simulation_results/experiment_${iExp}_run_${iRun}/vehicle_res.csv >> ../results/analyzed/experiment_$iExp.txt
             done
-            cat ../results/analyzed/experiment_$iExp.txt
           done
-      - name: create p-boxes
+      - name: create P-Boxes of simulation data
         working-directory: simulation_data/util
         run: |
-          node ./create_pboxes.js -r ../results/analyzed
+          mkdir ../results/uq
+          node ./create_pboxes.js -r ../results/analyzed > ../results/uq/pboxes_simulation.json
+      - name: create EDF of real measurement
+        run: node ./create_pboxes.js -r ../results/real_measurements > ../results/uq/edf_reference.json
+      - name: evaluate and add model form uncertainty (area validation metric)
+        working-directory: simulation_data/util
+        run: node ./evaluate_mfu.js -s ../results/uq/pboxes_simulation.json -m ../results/uq/edf_reference.json          
