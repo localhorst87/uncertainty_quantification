@@ -15,6 +15,8 @@ if (resultFilePath === undefined)
 
 let signals = translate(resultFilePath);
 
+console.log(signals);
+
 let velocity = signals.find(signal => signal.name === "v_x");
 let acceleration = signals.find(signal => signal.name === "a_x");
 let jerk = signals.find(signal => signal.name === "j_x");
