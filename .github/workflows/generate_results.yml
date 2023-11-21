@@ -15,6 +15,7 @@ jobs:
         run: |
           git pull --recurse-submodules
           git submodule update --remote
+          git submodule foreach 'git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*" && git fetch origin && git checkout origin/main'
       - name: install prerequisites
         working-directory: simulation_data/util
         run: ./install_prerequisites.sh
