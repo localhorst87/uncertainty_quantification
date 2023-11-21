@@ -14,13 +14,7 @@ for (let i = 0; i < process.argv.length; i++) {
 if (resultFilePath === undefined)
     throw("result file not given, use -r or --result to indicate path")
 
-console.log(resultFilePath);
-
-console.log(fs.readFileSync(resultFilePath, "utf-8"));
-
 let signals = translate(resultFilePath);
-
-console.log(signals.length);
 
 let velocity = signals.find(signal => signal.name === "v_x");
 let acceleration = signals.find(signal => signal.name === "a_x");
