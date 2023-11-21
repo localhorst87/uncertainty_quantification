@@ -26,8 +26,8 @@ jobs:
       - name: run simulations
         uses: localhorst87/run-openmcx@v0.3.0
         with:
-          ssd: .simulation_data/system/experiments
-          resultDir: .simulation_data/results/simulation_results
+          ssd: ./simulation_data/system/experiments
+          resultDir: ./simulation_data/results/simulation_results
       # - name: analyze results
       #   working-directory: simulation_data/util
       #   run: |
