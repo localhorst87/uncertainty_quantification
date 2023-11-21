@@ -41,7 +41,8 @@ jobs:
             done
           done
           # see exemplary result for validation/debugging
-          cat ../results/analyzed/experiment_1.txt
+          cd ../results/analyzed
+          ls
       # - name: create p-boxes
       #   working-directory: simulation_data/util
       #   run: |
