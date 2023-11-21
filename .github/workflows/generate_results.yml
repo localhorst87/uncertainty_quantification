@@ -10,21 +10,19 @@ jobs:
         with: 
           path: 'simulation_data'
           submodules: true
-      # - name: Git Sumbodule Update
-      #   working-directory: simulation_data
-      #   run: |
-      #     git pull --recurse-submodules
-      #     git submodule update --remote
-      #     git submodule foreach 'git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*" && git fetch origin && git checkout origin/main'
       - name: install prerequisites
         working-directory: simulation_data/util
         run: ./install_prerequisites.sh
       - name: create design of experiment
         working-directory: simulation_data/util
-        run: node ./create_doe.js -p ../parameters/parameter_specifications -o ../parameters/sampling/doe.json
+        run: |
+          mkdir ../parameters/sampling
+          node ./create_doe.js -p ../parameters/parameter_specifications -o ../parameters/sampling/doe.json
       - name: create SSD files as input to simulation
         working-directory: simulation_data/util
-        run: node ./createSsd.js -d ../parameters/sampling/doe.json -i ../system/baseline/system_structure.ssd -p ../parameters/ssv -o ../system/experiments
+        run: |
+          mkdir ../system/experiments
+          node ./createSsd.js -d ../parameters/sampling/doe.json -i ../system/baseline/system_structure.ssd -p ../parameters/ssv -o ../system/experiments
       - name: run simulations
         uses: localhorst87/run-openmcx@v0.3.0
         with:
