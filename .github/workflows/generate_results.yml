@@ -32,8 +32,8 @@ jobs:
         working-directory: simulation_data/util
         run: |
           mkdir ../results/analyzed
-          nExperiments=25
-          nRuns=40
+          nExperiments=40
+          nRuns=25
           for iExp in $(seq 1 $nExperiments)
           do
             for iRun in $(seq 1 $nRuns)
