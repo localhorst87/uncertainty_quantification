@@ -9,6 +9,7 @@ jobs:
         uses: actions/checkout@v4
         with: 
           path: 'simulation_data'
+          submodules: 'true'
       - name: install prerequisites
         working-directory: simulation_data/util
         run: ./install_prerequisites.sh
