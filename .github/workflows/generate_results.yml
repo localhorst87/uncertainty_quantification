@@ -47,6 +47,7 @@ jobs:
           mkdir ../results/uq
           node ./create_pboxes.js -r ../results/analyzed > ../results/uq/pboxes_simulation.json
       - name: create EDF of real measurement
+        working-directory: simulation_data/util
         run: node ./create_pboxes.js -r ../results/real_measurements > ../results/uq/edf_reference.json
       - name: evaluate and add model form uncertainty (area validation metric)
         working-directory: simulation_data/util
