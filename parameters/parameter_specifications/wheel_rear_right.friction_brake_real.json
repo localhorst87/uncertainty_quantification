@@ -1,0 +1,18 @@
+{
+    "name": "wheel_rear_right.friction_brake_real",
+    "data": {
+        "nominal": 0.241,
+        "upper": 0.2772,
+        "lower": 0.2049,
+        "unit": "-",
+        "interval": 0.0001
+    },
+    "uncertainty": {
+        "type": "truncated normal",
+        "standardDeviation": 0.0168
+    },
+    "source": {
+        "data": "measured",
+        "uncertainty": "measured"
+    }
+}

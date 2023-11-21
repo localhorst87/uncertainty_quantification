@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ssd:SystemStructureDescription xmlns:ssc="http://ssp-standard.org/SSP1/SystemStructureCommon" xmlns:ssd="http://ssp-standard.org/SSP1/SystemStructureDescription" xmlns:ssb="http://ssp-standard.org/SSP1/SystemStructureSignalDictionary" xmlns:ssv="http://ssp-standard.org/SSP1/SystemStructureParameterValues" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" name="Model.CONNECT 1" generationTool="Model.CONNECT" generationDateAndTime="2023-11-20T16:08:11Z" xsi:schemaLocation="http://ssp-standard.org/SSP1/SystemStructureDescription http://ssp-standard.org/SSP1/SSP/1.0/SystemStructureDescription.xsd">
+  <ssd:System name="Model.CONNECT 1">
+    <ssd:Elements>
+      <ssd:Component name="driver" type="application/x-fmu-sharedlibrary" source="../../models/driver_acceleration.fmu">
+        <ssd:Connectors>
+          <ssd:Connector name="a_x_driver" kind="output">
+            <ssc:Real unit="m/s^2"/>
+          </ssd:Connector>
+        </ssd:Connectors>
+        <ssd:ParameterBindings>
+          <ssd:ParameterBinding type="application/x-ssp-parameter-set" source="../../parameters/ssv/driver.ssv"/>
+        </ssd:ParameterBindings>
+      </ssd:Component>
+      <ssd:Component name="brake_target_values" type="application/x-fmu-sharedlibrary" source="../../models/brake_torque.fmu">
+        <ssd:Connectors>
+          <ssd:Connector name="a_x_desired" kind="input">
+            <ssc:Real unit="m/s^2"/>
+          </ssd:Connector>
+          <ssd:Connector name="v_x" kind="input">
+            <ssc:Real unit="m/s"/>
+          </ssd:Connector>
+          <ssd:Connector name="p_br_front" kind="output">
+            <ssc:Real unit="N/m^2"/>
+          </ssd:Connector>
+          <ssd:Connector name="M_recup_front" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="p_br_rear" kind="output">
+            <ssc:Real unit="N/m^2"/>
+          </ssd:Connector>
+          <ssd:Connector name="M_recup_rear" kind="output">
+            <ssc:Real/>
+          </ssd:Connector>
+        </ssd:Connectors>
+        <ssd:ParameterBindings>
+          <ssd:ParameterBinding type="application/x-ssp-parameter-set" source="../../parameters/ssv/brake_target_values.ssv"/>
+        </ssd:ParameterBindings>
+      </ssd:Component>
+      <ssd:Component name="wheel_front_left" type="application/x-fmu-sharedlibrary" source="../../models/wheel.fmu">
+        <ssd:Connectors>
+          <ssd:Connector name="p_br" kind="input">
+            <ssc:Real unit="N/m^2"/>
+          </ssd:Connector>
+          <ssd:Connector name="M_recup" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="v_x" kind="input">
+            <ssc:Real unit="m/s"/>
+          </ssd:Connector>
+          <ssd:Connector name="F_z" kind="input">
+            <ssc:Real unit="N"/>
+          </ssd:Connector>
+          <ssd:Connector name="F_x" kind="output">
+            <ssc:Real unit="N"/>
+          </ssd:Connector>
+        </ssd:Connectors>
+        <ssd:ParameterBindings>
+          <ssd:ParameterBinding type="application/x-ssp-parameter-set" source="../../parameters/ssv/wheel_front_left.ssv"/>
+        </ssd:ParameterBindings>
+      </ssd:Component>
+      <ssd:Component name="wheel_front_right" type="application/x-fmu-sharedlibrary" source="../../models/wheel.fmu">
+        <ssd:Connectors>
+          <ssd:Connector name="p_br" kind="input">
+            <ssc:Real unit="N/m^2"/>
+          </ssd:Connector>
+          <ssd:Connector name="M_recup" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="v_x" kind="input">
+            <ssc:Real unit="m/s"/>
+          </ssd:Connector>
+          <ssd:Connector name="F_z" kind="input">
+            <ssc:Real unit="N"/>
+          </ssd:Connector>
+          <ssd:Connector name="F_x" kind="output">
+            <ssc:Real unit="N"/>
+          </ssd:Connector>
+        </ssd:Connectors>
+        <ssd:ParameterBindings>
+          <ssd:ParameterBinding type="application/x-ssp-parameter-set" source="../../parameters/ssv/wheel_front_right.ssv"/>
+        </ssd:ParameterBindings>
+      </ssd:Component>
+      <ssd:Component name="wheel_rear_right" type="application/x-fmu-sharedlibrary" source="../../models/wheel.fmu">
+        <ssd:Connectors>
+          <ssd:Connector name="p_br" kind="input">
+            <ssc:Real unit="N/m^2"/>
+          </ssd:Connector>
+          <ssd:Connector name="M_recup" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="v_x" kind="input">
+            <ssc:Real unit="m/s"/>
+          </ssd:Connector>
+          <ssd:Connector name="F_z" kind="input">
+            <ssc:Real unit="N"/>
+          </ssd:Connector>
+          <ssd:Connector name="F_x" kind="output">
+            <ssc:Real unit="N"/>
+          </ssd:Connector>
+        </ssd:Connectors>
+        <ssd:ParameterBindings>
+          <ssd:ParameterBinding type="application/x-ssp-parameter-set" source="../../parameters/ssv/wheel_rear_right.ssv"/>
+        </ssd:ParameterBindings>
+      </ssd:Component>
+      <ssd:Component name="wheel_rear_left" type="application/x-fmu-sharedlibrary" source="../../models/wheel.fmu">
+        <ssd:Connectors>
+          <ssd:Connector name="p_br" kind="input">
+            <ssc:Real unit="N/m^2"/>
+          </ssd:Connector>
+          <ssd:Connector name="M_recup" kind="input">
+            <ssc:Real/>
+          </ssd:Connector>
+          <ssd:Connector name="v_x" kind="input">
+            <ssc:Real unit="m/s"/>
+          </ssd:Connector>
+          <ssd:Connector name="F_z" kind="input">
+            <ssc:Real unit="N"/>
+          </ssd:Connector>
+          <ssd:Connector name="F_x" kind="output">
+            <ssc:Real unit="N"/>
+          </ssd:Connector>
+        </ssd:Connectors>
+        <ssd:ParameterBindings>
+          <ssd:ParameterBinding type="application/x-ssp-parameter-set" source="../../parameters/ssv/wheel_rear_left.ssv"/>
+        </ssd:ParameterBindings>
+      </ssd:Component>
+      <ssd:Component name="vehicle" type="application/x-fmu-sharedlibrary" source="../../models/vehicle_longitudinal.fmu">
+        <ssd:Connectors>
+          <ssd:Connector name="F_x_front_left" kind="input">
+            <ssc:Real unit="N"/>
+          </ssd:Connector>
+          <ssd:Connector name="F_x_front_right" kind="input">
+            <ssc:Real unit="N"/>
+          </ssd:Connector>
+          <ssd:Connector name="F_x_rear_left" kind="input">
+            <ssc:Real unit="N"/>
+          </ssd:Connector>
+          <ssd:Connector name="F_x_rear_right" kind="input">
+            <ssc:Real unit="N"/>
+          </ssd:Connector>
+          <ssd:Connector name="v_x" kind="output">
+            <ssc:Real unit="m/s"/>
+          </ssd:Connector>
+          <ssd:Connector name="a_x" kind="output">
+            <ssc:Real unit="m/s^2"/>
+          </ssd:Connector>
+          <ssd:Connector name="j_x" kind="output">
+            <ssc:Real unit="m/s^3"/>
+          </ssd:Connector>
+          <ssd:Connector name="F_z_wheel_front" kind="output">
+            <ssc:Real unit="N"/>
+          </ssd:Connector>
+          <ssd:Connector name="F_z_wheel_rear" kind="output">
+            <ssc:Real unit="N"/>
+          </ssd:Connector>
+        </ssd:Connectors>
+        <ssd:ParameterBindings>
+          <ssd:ParameterBinding type="application/x-ssp-parameter-set" source="../../parameters/ssv/vehicle.ssv"/>
+        </ssd:ParameterBindings>
+      </ssd:Component>
+    </ssd:Elements>
+    <ssd:Connections>
+      <ssd:Connection startElement="driver" startConnector="a_x_driver" endElement="brake_target_values" endConnector="a_x_desired"/>
+      <ssd:Connection startElement="brake_target_values" startConnector="p_br_front" endElement="wheel_front_left" endConnector="p_br"/>
+      <ssd:Connection startElement="wheel_front_left" startConnector="M_recup" endElement="brake_target_values" endConnector="M_recup_front"/>
+      <ssd:Connection startElement="wheel_front_right" startConnector="p_br" endElement="brake_target_values" endConnector="p_br_front"/>
+      <ssd:Connection startElement="wheel_front_right" startConnector="M_recup" endElement="brake_target_values" endConnector="M_recup_front"/>
+      <ssd:Connection startElement="wheel_rear_left" startConnector="p_br" endElement="brake_target_values" endConnector="p_br_rear"/>
+      <ssd:Connection startElement="wheel_rear_right" startConnector="p_br" endElement="brake_target_values" endConnector="p_br_rear"/>
+      <ssd:Connection startElement="brake_target_values" startConnector="M_recup_rear" endElement="wheel_rear_right" endConnector="M_recup"/>
+      <ssd:Connection startElement="brake_target_values" startConnector="M_recup_rear" endElement="wheel_rear_left" endConnector="M_recup"/>
+      <ssd:Connection startElement="wheel_front_left" startConnector="F_x" endElement="vehicle" endConnector="F_x_front_left"/>
+      <ssd:Connection startElement="wheel_front_right" startConnector="F_x" endElement="vehicle" endConnector="F_x_front_right"/>
+      <ssd:Connection startElement="wheel_rear_left" startConnector="F_x" endElement="vehicle" endConnector="F_x_rear_left"/>
+      <ssd:Connection startElement="vehicle" startConnector="F_x_rear_right" endElement="wheel_rear_right" endConnector="F_x"/>
+      <ssd:Connection startElement="vehicle" startConnector="v_x" endElement="wheel_front_left" endConnector="v_x"/>
+      <ssd:Connection startElement="vehicle" startConnector="v_x" endElement="wheel_front_right" endConnector="v_x"/>
+      <ssd:Connection startElement="vehicle" startConnector="v_x" endElement="wheel_rear_left" endConnector="v_x"/>
+      <ssd:Connection startElement="vehicle" startConnector="v_x" endElement="wheel_rear_right" endConnector="v_x"/>
+      <ssd:Connection startElement="vehicle" startConnector="F_z_wheel_front" endElement="wheel_front_left" endConnector="F_z"/>
+      <ssd:Connection startElement="vehicle" startConnector="F_z_wheel_front" endElement="wheel_front_right" endConnector="F_z"/>
+      <ssd:Connection startElement="vehicle" startConnector="F_z_wheel_rear" endElement="wheel_rear_left" endConnector="F_z"/>
+      <ssd:Connection startElement="vehicle" startConnector="F_z_wheel_rear" endElement="wheel_rear_right" endConnector="F_z"/>
+      <ssd:Connection startElement="vehicle" startConnector="v_x" endElement="brake_target_values" endConnector="v_x"/>
+    </ssd:Connections>
+  </ssd:System>
+  <ssd:Units>
+    <ssc:Unit name="m/s^2">
+      <ssc:BaseUnit m="1" s="-2"/>
+    </ssc:Unit>
+    <ssc:Unit name="m/s">
+      <ssc:BaseUnit m="1" s="-1"/>
+    </ssc:Unit>
+    <ssc:Unit name="N/m^2">
+      <ssc:BaseUnit kg="1" m="-1" s="-2"/>
+    </ssc:Unit>
+    <ssc:Unit name="N">
+      <ssc:BaseUnit kg="1" m="1" s="-2"/>
+    </ssc:Unit>
+    <ssc:Unit name="m/s^3">
+      <ssc:BaseUnit m="1" s="-3"/>
+    </ssc:Unit>
+  </ssd:Units>
+  <ssd:DefaultExperiment startTime="0.0" stopTime="6.0">
+    <ssd:Annotations>
+      <!-- additional OpenMCx specific simulation parameters -->
+      <ssc:Annotation type="com.avl.model.connect.ssp.task" xmlns:mc="com.avl.model.connect.ssp.task">
+          <mc:Task stepType="parallel_sync_all" deltaTime="0.01" endType="end_time"/>
+      </ssc:Annotation>
+    </ssd:Annotations>
+  </ssd:DefaultExperiment>
+</ssd:SystemStructureDescription>

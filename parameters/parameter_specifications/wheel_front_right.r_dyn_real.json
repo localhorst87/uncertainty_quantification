@@ -1,0 +1,17 @@
+{
+    "name": "wheel_front_right.r_dyn_real",
+    "data": {
+        "nominal": 0.315,
+        "upper": 0.32,
+        "lower": 0.295,
+        "unit": "m",
+        "interval": 0.0001
+    },
+    "uncertainty": {
+        "type": "range"
+    },
+    "source": {
+        "data": "measured",
+        "uncertainty": "measured"
+    }
+}

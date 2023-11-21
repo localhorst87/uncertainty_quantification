@@ -1,0 +1,25 @@
+name: uncertainty-quantification
+on: push
+
+jobs:
+  generate-results:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: checkout simulation data
+        uses: actions/checkout@v4
+        with: 
+          path: 'simulation_data'
+      - name: install prerequisites
+        working-directory: simulation_data/util
+        run: ./install_prerequisites.sh
+      - name: create design of experiment
+        working-directory: simulation_data/util
+        run: node ./create_doe.js -p ../parameters/parameter_specifications -o ../parameters/sampling/doe.json
+      - name: create SSD files as input to simulation
+        working-directory: simulation_data/util
+        run: node ./createSsd.js -d ../parameters/sampling/doe.json -i ../system/baseline/system_structure.ssd -p ../parameters/ssv -o ../system/experiments
+      - name: run simulations
+        uses: localhorst87/run-openmcx@v0.3.0
+        with:
+          ssd: .simulation_data/system/experiments
+          resultDir: .simulation_data/results/simulation_results
