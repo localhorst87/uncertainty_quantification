@@ -2,7 +2,7 @@ name: uncertainty-quantification
 on: push
 
 jobs:
-  generate-results:
+  make-uncertainty-quantification:
     runs-on: ubuntu-20.04
     steps:
       - name: checkout simulation data
@@ -54,4 +54,6 @@ jobs:
         run: node ./evaluate_mfu.js -s ../results/uq/pboxes_simulation.json -m ../results/uq/edf_reference.json > ../results/uq/final_pbox.json
       - name: final statement
         working-directory: simulation_data/util
-        run: node ./make_statement.js -r ../results/uq/final_pbox.json
+        run: |
+          echo "## Uncertainty Quantification results" >> $GITHUB_STEP_SUMMARY
+          node ./make_statement.js -r ../results/uq/final_pbox.json >> $GITHUB_STEP_SUMMARY
