@@ -57,3 +57,5 @@ jobs:
         run: |
           echo "## Uncertainty Quantification results" >> $GITHUB_STEP_SUMMARY
           node ./make_statement.js -r ../results/uq/final_pbox.json >> $GITHUB_STEP_SUMMARY
+          echo "P-Box of the simulation result:" >> $GITHUB_STEP_SUMMARY
+          cat ../results/uq/final_pbox.json >> $GITHUB_STEP_SUMMARY
