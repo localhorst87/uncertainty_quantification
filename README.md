@@ -15,6 +15,8 @@ the estimated mass in the control unit.
 
 The change of the decelration in this scenario is resulting in a jerk (the jerk is defined as the derivation of the acceleration) of the vehicle that can be uncomfortable to the passengers.
 
+![usecase](./docs/usecase.png)
+
 ## Task :notebook_with_decorative_cover:
 
 Taking into account uncertainties of the mentioned parameters, try to give a statement how likely it is that the resulting jerk is below a certain threshold (e.g. 0.75 m/s³).
