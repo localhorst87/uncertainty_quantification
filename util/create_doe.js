@@ -46,7 +46,7 @@ wheel_rear_right_r_dyn_real = new ScalarParameter(wheel_rear_right_r_dyn_real);
 
 // create a Doe
 // will create a multidim array of size [25 x 40 x 13]
-// this will result in a DoE with 50 simulation runs
+// this will result in a DoE with 1000 simulation runs
 const doe = createSamples([
     vehicle_mass_real,
     wheel_front_left_friction_brake_real,
