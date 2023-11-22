@@ -18,6 +18,7 @@ jobs:
         run: |
           mkdir ../parameters/sampling
           node ./create_doe.js -p ../parameters/parameter_specifications -o ../parameters/sampling/doe.json
+          cat ../parameters/sampling/doe.json
       - name: create SSD files as input to simulation
         working-directory: simulation_data/util
         run: |
@@ -41,21 +42,26 @@ jobs:
               node ./analyze_simulation_results.js -r ../results/simulation_results/experiment_${iExp}_run_${iRun}/vehicle_res.csv >> ../results/analyzed/experiment_$iExp.txt
             done
           done
+          cat ../results/analyzed/experiment_1.txt
       - name: create P-Boxes of simulation data
         working-directory: simulation_data/util
         run: |
           mkdir ../results/uq
           node ./create_pboxes.js -r ../results/analyzed > ../results/uq/pboxes_simulation.json
+          cat ../results/uq/pboxes_simulation.json
       - name: create EDF of real measurement
         working-directory: simulation_data/util
-        run: node ./create_pboxes.js -r ../results/real_measurements > ../results/uq/edf_reference.json
+        run: |
+          node ./create_pboxes.js -r ../results/real_measurements > ../results/uq/edf_reference.json
+          cat ../results/uq/edf_reference.json
       - name: evaluate and add model form uncertainty (area validation metric)
         working-directory: simulation_data/util
-        run: node ./evaluate_mfu.js -s ../results/uq/pboxes_simulation.json -m ../results/uq/edf_reference.json > ../results/uq/final_pbox.json
+        run: |
+          node ./evaluate_mfu.js -s ../results/uq/pboxes_simulation.json -m ../results/uq/edf_reference.json > ../results/uq/final_pbox.json
+          cat ../results/uq/final_pbox.json
       - name: final statement
         working-directory: simulation_data/util
         run: |
           echo "## Uncertainty Quantification results" >> $GITHUB_STEP_SUMMARY
           node ./make_statement.js -r ../results/uq/final_pbox.json >> $GITHUB_STEP_SUMMARY
           echo "P-Box of the simulation result:" >> $GITHUB_STEP_SUMMARY
-          cat ../results/uq/final_pbox.json >> $GITHUB_STEP_SUMMARY
