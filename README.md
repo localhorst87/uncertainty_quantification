@@ -47,13 +47,13 @@ The DoE will have 1000 simulation runs, each one with different parameter values
 
 ### 2. Create inputs for the Simulation
 
-As the target simulation tool [OpenMCx](https://github.com/eclipse/openmcx) is using the [SSP standard](https://ssp-standard.org/) to define the system, we need create SSV files (System Structure Parameter Values) and integrate them into the target SSD file (System Structure Definitions).
+As the target simulation tool [OpenMCx](https://github.com/eclipse/openmcx) is using the [SSP standard](https://ssp-standard.org/) to define the system, we need to create SSV files (System Structure Parameter Values) and integrate them into the target SSD file (System Structure Definitions).
 
 In this step, 1000 different SSD files will be generated.
 
 ### 3. Run simulations
 
-To run the 1000 simulations, we are using my [custom github action](https://github.com/localhorst87/run-openmcx) with just two lines of code.
+To run the 1000 simulations with [OpenMCx](https://github.com/eclipse/openmcx), we are using my [custom github action](https://github.com/localhorst87/run-openmcx) with just two lines of code.
 
 ### 4. Analyze time-series data
 
@@ -67,7 +67,7 @@ In the end we will have 25 discrete values of the maximum jerk, for each of the 
 
 Each of the 40 experiments has 25 discrete values, that will be treated as a discrete [EDF](https://en.wikipedia.org/wiki/Empirical_distribution_function#:~:text=In%20statistics%2C%20an%20empirical%20distribution,of%20the%20n%20data%20points.).
 
-To condense the 40 EDFs, we will create [P-Boxes](https://en.wikipedia.org/wiki/Probability_box) from it. We will make use of my [**Uncertainty** library in the Credibility-Development-Kit](./Credibility-Assessment-Framework//Credibility-Development-Kit/util/uncertainty/README.md).
+To condense the 40 EDFs, we will create [P-Boxes](https://en.wikipedia.org/wiki/Probability_box) from it. We will make use of my [**Uncertainty** library in the Credibility-Development-Kit](https://github.com/virtual-vehicle/Credibility-Assessment-Framework/tree/dev/Credibility-Development-Kit/util/uncertainty/README.md).
 
 ![P-Boxes of simulation results](./docs/p_boxes_raw.png)
 
