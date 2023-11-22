@@ -39,7 +39,7 @@ To reach this goal, we will make use of the following steps, that will be execut
 
 With the [specification of the parameters](./parameters/parameter_specifications/), we will create a DoE, taking into account the aleatory uncertainties (uncertainties with known probability distribution) and epistemic uncertainties (uncertainties with unknown probability distributions) of the parameters.
 
-We will use my [**Parameter** library in the Credibility-Development-Kit](./Credibility-Assessment-Framework//Credibility-Development-Kit/util/parameter/README.md) to create the DoE.
+We will use my [**Parameter** library in the Credibility-Development-Kit](https://github.com/virtual-vehicle/Credibility-Assessment-Framework/tree/dev/Credibility-Development-Kit/util/parameter/README.md) to create the DoE.
 
 The number of experiments and runs per experiment is depending on the number of parameters with epistemic and alreatory uncertainties, as these uncertainties have to be treated different.
 
@@ -59,7 +59,7 @@ To run the 1000 simulations, we are using my [custom github action](https://gith
 
 We convert and analyze the results of the simulations (time-series data) to extract the value we are interested in: The maximum value of the jerk during blending.
 
-To ease the analysis part, we are using my [**Signal** library in the Credibility-Development-Kit](./Credibility-Assessment-Framework/Credibility-Development-Kit/util/signal/README.md).
+To ease the analysis part, we are using my [**Signal** library in the Credibility-Development-Kit](https://github.com/virtual-vehicle/Credibility-Assessment-Framework/tree/dev/Credibility-Development-Kit/util/signal/README.md).
 
 In the end we will have 25 discrete values of the maximum jerk, for each of the 40 experiments.
 
@@ -73,7 +73,7 @@ To condense the 40 EDFs, we will create [P-Boxes](https://en.wikipedia.org/wiki/
 
 ### 6. Evaluate and add model form uncertainty
 
-To evaluate the error of the simulation, we will compare the simulation results to the (sparse) existing data from real measurements. For this, we are using the [Area Validation Metric](./Credibility-Assessment-Framework/Credibility-Development-Kit/metrics/evaluation/level_3/README.md) and add the resulting difference as uncertainty to the P-Boxes of the simulation results.
+To evaluate the error of the simulation, we will compare the simulation results to the (sparse) existing data from real measurements. For this, we are using the [Area Validation Metric](https://github.com/virtual-vehicle/Credibility-Assessment-Framework/tree/dev/Credibility-Development-Kit/metrics/evaluation/level_3/README.md) and add the resulting difference as uncertainty to the P-Boxes of the simulation results.
 
 ![Model Form uncertainty](./docs/mode_form_uncertainty.png)
 
